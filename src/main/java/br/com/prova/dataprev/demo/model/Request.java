@@ -17,6 +17,9 @@ public class Request {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Product> products = new ArrayList();
 
+    @ManyToOne
+    private Client client;
+
     public Request() {
     }
 
@@ -50,5 +53,13 @@ public class Request {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

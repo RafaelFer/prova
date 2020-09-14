@@ -5,6 +5,7 @@ import br.com.prova.dataprev.demo.dto.RequestDTO;
 import br.com.prova.dataprev.demo.form.RequestForm;
 import br.com.prova.dataprev.demo.model.Product;
 import br.com.prova.dataprev.demo.model.Request;
+import br.com.prova.dataprev.demo.repository.ClientRepository;
 import br.com.prova.dataprev.demo.service.ProductService;
 import br.com.prova.dataprev.demo.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,20 @@ public class RequestController {
     @Autowired
     private RequestService requestService;
 
+    @Autowired
+    private ClientRepository clientRepository;
+
     @PostMapping
     @Transactional
     public ResponseEntity<RequestDTO> register(@RequestBody @Valid RequestForm form, UriComponentsBuilder uriBuilder) {
 
-        Request request = form.converter(form.getDescription(),form.getProducts(),productService);
+        Request request = form.converter(form,productService,clientRepository);
         requestService.save(request);
         URI uri = uriBuilder.path("/request/{id}").buildAndExpand(request.getId()).toUri();
+
+        System.out.println(form.getClient());
         return ResponseEntity.created(uri).body(new RequestDTO(request));
     }
+
 
 }
