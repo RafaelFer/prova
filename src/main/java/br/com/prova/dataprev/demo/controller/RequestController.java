@@ -40,8 +40,6 @@ public class RequestController {
         Request request = form.converter(form,productService,clientRepository);
         requestService.save(request);
         URI uri = uriBuilder.path("/request/{id}").buildAndExpand(request.getId()).toUri();
-
-        System.out.println(form.getClient());
         return ResponseEntity.created(uri).body(new RequestDTO(request));
     }
 
