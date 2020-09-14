@@ -1,5 +1,7 @@
 package br.com.prova.dataprev.demo.model;
 
+import br.com.prova.dataprev.demo.dto.ProductDTO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +22,14 @@ public class Product {
     private LocalDateTime created = LocalDateTime.now();
 
     public Product() {
+    }
+
+    public Product(ProductDTO productDTO) {
+        this.id = productDTO.getId();
+        this.name = productDTO.getName();
+        this.description = productDTO.getDescription();
+        this.price = productDTO.getPrice();
+        this.created = productDTO.getCreated();
     }
 
     public Product(String name, String description, BigDecimal price) {

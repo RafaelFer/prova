@@ -1,6 +1,7 @@
 package br.com.prova.dataprev.demo.dto;
 
 import br.com.prova.dataprev.demo.model.Product;
+import br.com.prova.dataprev.demo.model.Request;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,6 +12,13 @@ public class RequestDTO {
     private Long id;
     private String description;
     private LocalDateTime created = LocalDateTime.now();
+
+    public RequestDTO(Request request) {
+        this.id = request.getId();
+        this.description = request.getDescription();
+        this.created = request.getCreated();
+        this.products = request.getProducts();
+    }
 
     private List<Product> products = new ArrayList();
 

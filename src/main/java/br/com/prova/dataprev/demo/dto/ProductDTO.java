@@ -69,4 +69,8 @@ public class ProductDTO {
         return new ProductDTO(product);
     }
 
+    public static Product converter(ProductDTO productDTO) {
+        return new Product(productDTO);
+    }
+
 }
