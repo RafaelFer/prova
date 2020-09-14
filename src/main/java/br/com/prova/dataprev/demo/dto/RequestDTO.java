@@ -2,6 +2,7 @@ package br.com.prova.dataprev.demo.dto;
 
 import br.com.prova.dataprev.demo.model.Product;
 import br.com.prova.dataprev.demo.model.Request;
+import org.springframework.data.domain.Page;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -52,5 +53,9 @@ public class RequestDTO {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public static Page<RequestDTO> converter(Page<Request> requests) {
+        return requests.map(RequestDTO::new);
     }
 }
