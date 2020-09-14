@@ -7,4 +7,5 @@ localhost:8080/auth/
 	"pass":"123456"
 }
 
+é possivel inserir usuarios tbm pelo data.sql
 
