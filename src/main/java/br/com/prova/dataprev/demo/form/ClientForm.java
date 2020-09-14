@@ -17,6 +17,23 @@ public class ClientForm {
     @NotNull @NotEmpty
     private Long taxid;
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getTaxid() {
+        return taxid;
+    }
+
+    public void setTaxid(Long taxid) {
+        this.taxid = taxid;
+    }
+
     public Client update(Long id, ClientRepository clientRepository) {
         Client client = clientRepository.getOne(id);
 
@@ -24,5 +41,9 @@ public class ClientForm {
         client.setTaxid(this.taxid);
 
         return client;
+    }
+
+    public Client converter() {
+        return new Client(name, taxid);
     }
 }
