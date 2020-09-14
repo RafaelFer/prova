@@ -1,9 +1,7 @@
 package br.com.prova.dataprev.demo.form;
 
 import br.com.prova.dataprev.demo.model.Client;
-import br.com.prova.dataprev.demo.model.Product;
 import br.com.prova.dataprev.demo.repository.ClientRepository;
-import br.com.prova.dataprev.demo.repository.ProductRepository;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
