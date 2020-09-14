@@ -9,3 +9,12 @@ localhost:8080/auth/
 
 é possivel inserir usuarios tbm pelo data.sql
 
+
+#Cadastrando um pedido
+http://localhost:8080/request/
+{
+	"description":"TEste",
+	"products":[1,2],
+	"client": 1
+}
+
