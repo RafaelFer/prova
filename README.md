@@ -1,5 +1,20 @@
 "# prova" 
 
+Para rodar o projeto por favor seguir os seguintes comandos na raiz do projeto
+
+mvn clean install
+
+mvn spring-boot:run
+
+Link do Swagger
+http://localhost:8080/swagger-ui.html
+
+
+Para acessar o banco de dados em memoria
+http://localhost:8080/h2-console 
+
+
+
 Para utilizar API bloqueadas por favor gerar um token de acessos em 
 localhost:8080/auth/
 {
